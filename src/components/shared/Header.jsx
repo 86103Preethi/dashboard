@@ -7,19 +7,16 @@ import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 
-
 export default function Header() {   
  const navigate = useNavigate()
 
-
-
   return (
-    <div className='bg-white h-16 px-4 flex justify-between items-center '>
-        <div className='relative'>
+    <div className='bg-white h-16 px-4 flex justify-between w-full items-center'>
+        <div className='relative flex-1'>
             <FcSearch fontsize={24} 
-            className='text-gray-400 absolute mt-3 ml-1 '/>
+            className='text-gray-400 absolute top-2.5 left-2'/>
             <input type='text' placeholder='Search....' 
-            className='text-sm focus:outline-none active:outline-none h-10 w-[80rem] border border-gray-400 rounded-sm px-7 '/>
+            className='w-full max-w-4xl h-10 pl-10 pr-4 border border-gray-400 rounded-sm text-sm focus:outline-none'/>
         </div>
 
 
@@ -74,7 +71,7 @@ export default function Header() {
               <Popover.Panel className='absolute right-0 z-10 mt-2.5 w-88'>
                 <div className='bg-white rounded-sm shadow-md ring-1 ring-black ring-opacity-5  px-2 py-2.5 '>
                 <strong className='text-gray-700 font-bold'>Notifications!</strong>
-                <div className='mt-2 py-1 text-sm '>This is Notofication panel</div>
+                <div className='mt-2 py-1 text-sm '>This is Notification panel</div>
                 </div>
                 </Popover.Panel>               
               </Transition>

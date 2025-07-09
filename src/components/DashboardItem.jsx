@@ -5,7 +5,6 @@ import RecentOrders from '../components/RecentOrders';
 import BuyerProfilePieChart from './BuyerProfilePieChart';
 import PopularProducts from '../components/PopularProducts';
 import Register from '../components/Register';
-// import Dashboard from '../components/'; 
 import Products from '../components/Products';
 
 export default function DashboardItem() {
@@ -21,9 +20,8 @@ export default function DashboardItem() {
         <PopularProducts />
       </div>
       <div>
-      <Register />
-      {/* <Dashboard /> */}
-      <Products />
+      {/* <Register />
+      <Products /> */}
     </div>
     </div>
   );
