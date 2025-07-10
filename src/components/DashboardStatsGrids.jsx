@@ -3,78 +3,67 @@ import { FcOrganization,FcPieChart,FcBusinesswoman,FcComboChart} from "react-ico
 
 function DashboardStatsGrids() {
 
+  const statsData = [
+    {
+      title: 'Total Sales',
+      amount: '$4556.66',
+      change: '+455',
+      changeColor: 'text-green-500',
+      icon: <FcOrganization className='text-2xl text-white' />,
+      bgColor: 'bg-sky-300'
+    },
+    {
+      title: 'Total Revenue',
+      amount: '$8907.66',
+      change: '-95',
+      changeColor: 'text-red-500',
+      icon: <FcPieChart className='text-2xl text-white' />,
+      bgColor: 'bg-purple-300'
+    },
+    {
+      title: 'Total Members',
+      amount: '$4556.66',
+      change: '+455',
+      changeColor: 'text-green-500',
+      icon: <FcBusinesswoman className='text-2xl text-white' />,
+      bgColor: 'bg-yellow-200'
+    },
+    {
+      title: 'Overall',
+      amount: '$57596.66',
+      change: '+566',
+      changeColor: 'text-green-500',
+      icon: <FcComboChart className='text-2xl text-white' />,
+      bgColor: 'bg-rose-300'
+    }
+  ];
 
-  function BoxWrapper({children}){   //we use this fun to avoid using same css in multiple places
+
+
+  const BoxWrapper = ({children}) => {   //we use this fun to avoid using same css in multiple places
     return <div className='bg-white text-black rounded-sm p-4 flex-1 border border-gray-200 flex items-center'>
     {children}
     </div>
- }
+  }
 
   return (
-    <div className='flex gap-7 w-full'>
-
-      <BoxWrapper>
-        {/* icon */}
-        <div className='rounded-full h-12 w-12 flex items-center justify-center bg-sky-300'>
-          <FcOrganization className='text-2xl text-white'/>
-        </div>
-        {/* values */}
-        <div className='pl-4'>
-        <span className=' text-sm text-gray-500 font-light'>Total Sales</span>
-        <div className='flex items-center'>
-          <strong className='text-xl text-gray-700 font-semibold'>$4556.66</strong> 
-          <span className='text-sm text-green-500 pl-2'>+455</span>
-        </div>
-        </div>
-      </BoxWrapper>
-       
-      <BoxWrapper >
-        {/* icon */}
-        <div className='rounded-full h-12 w-12 flex items-center justify-center bg-purple-300'>
-          <FcPieChart className='text-2xl text-white'/>
-        </div>
-        {/* values */}
-        <div className='pl-4'>
-        <span className=' text-sm text-gray-500 font-light'>Total Revenue</span>
-        <div className='flex items-center'>
-          <strong className='text-xl text-gray-700 font-semibold'>$8907.66</strong> 
-          <span className='text-sm text-red-500 pl-2'>-95</span>
-        </div>
-        </div>
-      </BoxWrapper>
-
-
-
-      <BoxWrapper>
-        {/* icon */}
-        <div className='rounded-full h-12 w-12 flex items-center justify-center bg-yellow-200'>
-          <FcBusinesswoman className='text-2xl text-white'/>
-        </div>
-        {/* values */}
-        <div className='pl-4'>
-        <span className=' text-sm text-gray-500 font-light'>Total Members</span>
-        <div className='flex items-center'>
-          <strong className='text-xl text-gray-700 font-semibold'>$4556.66</strong> 
-          <span className='text-sm text-green-500 pl-2'>+455</span>
-        </div>
-        </div>
-      </BoxWrapper>
-
-      <BoxWrapper>
-        {/* icon */}
-        <div className='rounded-full h-12 w-12 flex items-center justify-center bg-rose-300'>
-          <FcComboChart className='text-2xl text-white'/>
-        </div>
-        {/* values */}
-        <div className='pl-4'>
-        <span className=' text-sm text-gray-500 font-light'>Overall </span>
-        <div className='flex items-center'>
-          <strong className='text-xl text-gray-700 font-semibold'>$57596.66</strong> 
-          <span className='text-sm text-green-500 pl-2'>+566</span>
-        </div>
-        </div>
-      </BoxWrapper>
-      
+    <div className='flex gap-7 w-full flex-wrap'>
+      {statsData.map((item,index) => (
+          <BoxWrapper key={index}>
+          {/* icon */}
+          <div className={`rounded-full h-12 w-12 flex items-center justify-center ${item.bgColor}`}>
+              {item.icon}
+            </div>
+          {/* values */}
+          <div className='pl-4'>
+          <span className=' text-sm text-gray-500 font-light'>{item.title}</span>
+          <div className='flex items-center'>
+            <strong className='text-xl text-gray-700 font-semibold'>{item.amount}</strong>
+            <span className={`text-sm pl-2 ${item.changeColor}`}>{item.change}</span>
+          </div>
+          </div>
+        </BoxWrapper>
+      ))}
     </div>
   )
 

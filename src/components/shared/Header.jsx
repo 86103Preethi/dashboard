@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <div className='bg-white h-16 px-4 flex justify-between w-full items-center'>
         <div className='relative flex-1'>
-            <FcSearch fontsize={24} 
+            <FcSearch fontSize={24} 
             className='text-gray-400 absolute top-2.5 left-2'/>
             <input type='text' placeholder='Search....' 
             className='w-full max-w-4xl h-10 pl-10 pr-4 border border-gray-400 rounded-sm text-sm focus:outline-none'/>

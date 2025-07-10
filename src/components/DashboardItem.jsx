@@ -19,10 +19,12 @@ export default function DashboardItem() {
         <RecentOrders />
         <PopularProducts />
       </div>
+
+      
       <div>
-      {/* <Register />
-      <Products /> */}
-    </div>
+    
+      </div>
+      
     </div>
   );
 }

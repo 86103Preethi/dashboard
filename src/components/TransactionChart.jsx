@@ -71,7 +71,7 @@ export default function TransactionChart() {
 			<div className="mt-3 w-full flex-1 text-xs">
 				<ResponsiveContainer width="100%" height="100%">
 					<BarChart
-						width={500}
+						width={300}
 						height={300}
 						data={data}
 						margin={{

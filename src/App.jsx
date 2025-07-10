@@ -12,7 +12,7 @@ function App() {
                     <Route index element={<Dashboard />} />
                     <Route path="products" element={<Products />} />
                 </Route>
-                <Route path="/register" element={<Register />} />
+                <Route path="register" element={<Register />} />
             </Routes>
         </Router>
     )
