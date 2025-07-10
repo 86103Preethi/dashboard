@@ -1,8 +1,6 @@
 import React from 'react'
 import { format } from 'date-fns'
 import { Link } from 'react-router-dom'
-// import { getOrderStatus } from '../lib/const/helpers'
-
 
 const recentOrderData = [
 	{
@@ -13,7 +11,8 @@ const recentOrderData = [
 		order_date: '2022-05-17T03:24:00',
 		order_total: '$435.50',
 		current_order_status: 'PLACED',
-		shipment_address: 'Cottage Grove, OR 97424'
+		shipment_address: 'Cottage Grove, OR 97424',
+		status:'progress'
 	},
 	{
 		id: '7',
@@ -23,7 +22,8 @@ const recentOrderData = [
 		order_date: '2022-05-14T05:24:00',
 		order_total: '$96.35',
 		current_order_status: 'CONFIRMED',
-		shipment_address: 'Los Angeles, CA 90017'
+		shipment_address: 'Los Angeles, CA 90017',
+		status:'hold'
 	},
 	{
 		id: '2',
@@ -33,7 +33,8 @@ const recentOrderData = [
 		order_date: '2022-05-17T07:14:00',
 		order_total: '$836.44',
 		current_order_status: 'SHIPPED',
-		shipment_address: 'Westminster, CA 92683'
+		shipment_address: 'Westminster, CA 92683',
+		status:'done'
 	},
 	{
 		id: '3',
@@ -43,7 +44,8 @@ const recentOrderData = [
 		order_date: '2022-05-16T12:40:00',
 		order_total: '$334.50',
 		current_order_status: 'SHIPPED',
-		shipment_address: 'San Mateo, CA 94403'
+		shipment_address: 'San Mateo, CA 94403',
+		status:'completed'
 	},
 	{
 		id: '4',
@@ -53,7 +55,8 @@ const recentOrderData = [
 		order_date: '2022-05-14T03:24:00',
 		order_total: '$876.00',
 		current_order_status: 'OUT_FOR_DELIVERY',
-		shipment_address: 'San Mateo, CA 94403'
+		shipment_address: 'San Mateo, CA 94403',
+		status:'progress'
 	},
 	{
 		id: '5',
@@ -63,7 +66,8 @@ const recentOrderData = [
 		order_date: '2022-05-14T05:24:00',
 		order_total: '$96.35',
 		current_order_status: 'DELIVERED',
-		shipment_address: 'Los Angeles, CA 90017'
+		shipment_address: 'Los Angeles, CA 90017',
+		status:'completed'
 	}
 ]
 
@@ -99,7 +103,19 @@ const recentOrderData = [
 								<td>{format(new Date(order.order_date), 'dd MMM yyyy')}</td>
 								<td>{order.order_total}</td>
 								<td>{order.shipment_address}</td>
-								{/* <td>{getOrderStatus(order.current_order_status)}</td> */}
+								<td className={`${
+									order.status === 'progress'
+									? 'text-yellow-600'
+									: order.status === 'hold'
+									? 'text-red-600'
+									: order.status === 'done'
+									? 'text-green-600'
+									: order.status === 'completed'
+									? 'text-blue-600'
+									: 'text-gray-600'}
+								`}>
+								{order.status}
+								</td>
 							</tr>
 						))}
 					</tbody>
